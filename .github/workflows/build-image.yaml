@@ -13,5 +13,7 @@ jobs:
           yarn build-image
       - name: Buld frontend
         run: yarn install --frozen-lockfile
+      - name: Start frontend
+        run: yarn start
       - name: Run e2e
         run: yarn test:e2e 
