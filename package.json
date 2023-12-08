@@ -17,7 +17,7 @@
     "clean": "backstage-cli repo clean",
     "test": "backstage-cli repo test",
     "test:all": "backstage-cli repo test --coverage",
-    "test:e2e": "playwright test",
+    "test:e2e": "playwright test --ui",
     "fix": "backstage-cli repo fix",
     "lint": "backstage-cli repo lint --since origin/master",
     "lint:all": "backstage-cli repo lint",
