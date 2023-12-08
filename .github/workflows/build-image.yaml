@@ -15,7 +15,7 @@ jobs:
         run: yarn install
 
       - name: Buld backstage
-        run: yarn dev
+        run: yarn build:all
 
       - name: Run e2e
         run: yarn test:e2e
