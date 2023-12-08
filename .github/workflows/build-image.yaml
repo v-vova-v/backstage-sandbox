@@ -4,16 +4,14 @@ jobs:
   e2e:
     runs-on: ubuntu-latest
     steps:
-      - name: Download code
-        uses: actions/checkout@v3      
-      - name: Build backend docker image
-        run: |
-          yarn
-          yarn build:backend
-          yarn build-image
-      - name: Start Backend Docker Container
-        run: docker run -p 7007:7007
-      - name: Buld frontend
-        run: yarn install --frozen-lockfile      
+      - name: Download project
+        uses: actions/checkout@v3
+
+      - name: Install dependencies
+        run: yarn install --frozen-lockfile
+
+      - name: Buld backstage
+        run: yarn build:all
+
       - name: Run e2e
-        run: yarn test:e2e 
+        run: yarn test:e2e
