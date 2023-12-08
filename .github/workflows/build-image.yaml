@@ -12,7 +12,7 @@ jobs:
           yarn build:backend
           yarn build-image
       - name: Start Backend Docker Container
-        run: docker run -p 7007:7007 your-backend-image:latest
+        run: docker run -p 7007:7007
       - name: Buld frontend
         run: yarn install --frozen-lockfile      
       - name: Run e2e
