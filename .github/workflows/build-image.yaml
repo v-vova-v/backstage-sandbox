@@ -2,7 +2,7 @@ name: Try run e2e
 on: push
 jobs:
   e2e:
-    runs-on: ubuntu-lates
+    runs-on: ubuntu-latest
     steps:
       - name: Download code
         uses: actions/checkout@v3
