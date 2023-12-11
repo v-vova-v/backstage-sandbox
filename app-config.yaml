@@ -30,7 +30,7 @@ backend:
   database:
     client: sqlite3
     connection:
-      filename: ./mydb.sqlite3
+      directory: ./sqlite-database
     
   # workingDirectory: /tmp # Use this to configure a working directory for the scaffolder, defaults to the OS temp-dir
 

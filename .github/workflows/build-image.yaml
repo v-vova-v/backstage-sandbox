@@ -18,8 +18,8 @@ jobs:
 
       - name: Create SQLite database
         run: |
-          echo "CREATE TABLE example (id INTEGER PRIMARY KEY, name TEXT);" > example.sql
-          sqlite3 mydb.db < example.sql
+            echo "CREATE TABLE example (id INTEGER PRIMARY KEY, name TEXT);" > example.sql
+            sqlite3 ./sqlite-database/mydb.db < example.sql
 
       - name: Start backend
         run: |
