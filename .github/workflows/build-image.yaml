@@ -25,6 +25,11 @@ jobs:
           yarn install
           yarn add --cwd packages/backend pg
 
+      - name: Test PostgreSQL
+        run: |
+          sudo -u postgres psql -c "ALTER USER postgres PASSWORD 'secret';"
+          sudo -u postgres psql -c "CREATE DATABASE vm;"
+
       - name: Start PostgreSQL
         run: |
           # Wait for PostgreSQL to be ready before starting the backend
