@@ -4,14 +4,10 @@ jobs:
   e2e:
     runs-on: ubuntu-latest
     services:
-      postgres:
-        image: postgres:latest
+      sqlite:
+        image: tiangolo/sqlite-secure:latest
         ports:
           - 5432:5432
-        env:
-          POSTGRES_DB: vm
-          POSTGRES_USER: vm
-          POSTGRES_PASSWORD: secret
     steps:
       - name: Download project
         uses: actions/checkout@v3
@@ -23,16 +19,12 @@ jobs:
       - name: Install dependencies
         run: |
           yarn install
-          yarn add --cwd packages/backend pg
+          yarn add --cwd packages/backend sqlite3
 
-      - name: Start PostgreSQL
+      - name: Create SQLite database
         run: |
-          # Wait for PostgreSQL to be ready before starting the backend
-          sleep 10
-
-      - name: Check PostgreSQL Connection
-        run: |
-          PGPASSWORD=secret psql -h localhost -U vm -d vm -c "SELECT 1;"
+          echo "CREATE TABLE example (id INTEGER PRIMARY KEY, name TEXT);" > example.sql
+          sqlite3 mydb.db < example.sql
 
       - name: Start backend
         run: |
@@ -40,7 +32,7 @@ jobs:
           yarn start-backend &
           sleep 20  # Wait for the backend to start
           nc -zv localhost 7007
-          
+
       - name: Run e2e
         run: yarn test:e2e
         env:
