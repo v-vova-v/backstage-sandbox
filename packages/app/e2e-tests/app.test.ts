@@ -19,5 +19,5 @@ import { test, expect } from '@playwright/test';
 test('App should render the welcome page', async ({ page }) => {
   await page.goto('/');
 
-  await expect(page.getByText('My Company Catal')).toBeVisible();
+  await expect(page.getByText('My Company Cotalog')).toBeVisible();
 });
