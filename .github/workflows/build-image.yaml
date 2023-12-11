@@ -21,7 +21,7 @@ jobs:
           node-version: 18.18.2
 
       - name: Install dependencies
-        run: | 
+        run: |
           yarn install
           yarn add --cwd packages/backend pg
 
@@ -32,18 +32,15 @@ jobs:
 
       - name: Check PostgreSQL Connection
         run: |
-          PGPASSWORD=secret psql -h localhost -U vm -d vm -c "SELECT 1;"    
+          PGPASSWORD=secret psql -h localhost -U vm -d vm -c "SELECT 1;"
 
       - name: Start backend
-        run: | 
+        run: |
           yarn build:backend
           yarn start-backend &
-          sleep 30  # Wait for the backend to start
-          nc -zv localhost 7007          
-
-      - name: Buld backstage
-        run: yarn build:all
-
+          sleep 10  # Wait for the backend to start
+          nc -zv localhost 7007
+          
       - name: Run e2e
         run: yarn test:e2e
         env:
