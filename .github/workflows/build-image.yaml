@@ -31,7 +31,7 @@ jobs:
           sleep 10
 
       - name: Start backend
-        run: yarn start-backend
+        run: yarn start-backend &
 
       - name: Buld backstage
         run: yarn build:all
