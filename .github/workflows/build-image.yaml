@@ -3,11 +3,6 @@ on: push
 jobs:
   e2e:
     runs-on: ubuntu-latest
-    services:
-      sqlite:
-        image: sqlite:latest
-        ports:
-          - 5432:5432
     steps:
       - name: Download project
         uses: actions/checkout@v3
