@@ -5,7 +5,7 @@ jobs:
     runs-on: ubuntu-latest
     services:
       sqlite:
-        image: tiangolo/sqlite-secure:latest
+        image: sqlite:latest
         ports:
           - 5432:5432
     steps:
