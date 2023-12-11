@@ -38,7 +38,7 @@ jobs:
         run: |
           yarn build:backend
           yarn start-backend &
-          sleep 10  # Wait for the backend to start
+          sleep 20  # Wait for the backend to start
           nc -zv localhost 7007
           
       - name: Run e2e
