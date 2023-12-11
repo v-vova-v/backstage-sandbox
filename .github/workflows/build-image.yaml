@@ -3,15 +3,15 @@ on: push
 jobs:
   e2e:
     runs-on: ubuntu-latest
-    services:
-      postgres:
-        image: postgres:latest
-        ports:
-          - 5432:5432
-        env:
-          POSTGRES_DB: vm
-          POSTGRES_USER: vm
-          POSTGRES_PASSWORD: secret
+    # services:
+    #   postgres:
+    #     image: postgres:latest
+    #     ports:
+    #       - 5432:5432
+    #     env:
+    #       POSTGRES_DB: vm
+    #       POSTGRES_USER: vm
+    #       POSTGRES_PASSWORD: secret
     steps:
       - name: Download project
         uses: actions/checkout@v3
