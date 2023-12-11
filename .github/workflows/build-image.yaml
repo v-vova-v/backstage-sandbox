@@ -33,9 +33,9 @@ jobs:
       - name: Start backend
         run: | 
           yarn build:backend
+          yarn start-backend &
           sleep 30  # Wait for the backend to start
-          nc -zv localhost 7007
-          nc -zv localhost 3000
+          nc -zv localhost 7007          
 
       - name: Buld backstage
         run: yarn build:all
